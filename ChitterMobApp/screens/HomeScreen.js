@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, ActivityIndicator, FlatList } from 'react-native';
 
-class ChitterMobApp extends Component {
+class HomeScreen extends Component {
 	
 		 constructor(props) {
 		super(props);
@@ -60,4 +60,4 @@ class ChitterMobApp extends Component {
  }
 }
 
-export ChitterMobApp;
+export default HomeScreen;

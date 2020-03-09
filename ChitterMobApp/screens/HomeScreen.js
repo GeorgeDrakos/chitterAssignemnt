@@ -16,7 +16,7 @@ class HomeScreen extends Component {
 		 this.getData();
 	 }
 	 
-	 	 	getData(){
+	 	 getData(){
 		return fetch('http://10.0.2.2:3333/api/v0.0.5/chits')
 		.then((response) => response.json())
 		.then((responseJson) => {

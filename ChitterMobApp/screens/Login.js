@@ -5,23 +5,15 @@ class CreateNewUser extends Component {
  constructor(props){
  super(props);
  this.state={
-	 first_name: '',
-	 surname: '',
 	 e_mail:  '',
-	 pw:  ''
+	 pw:  '',
+	 X-Authorization: '',
+	 id : ''
  };
  }
  render() {
  return (
 	<View>
-	<TextInput
-	 placeholder = "Enter first name"
-	 onChangeText={(text) => this.setState({text})}
-	 />
-	 <TextInput
-	 placeholder = "Enter surname"
-	 onChangeText={(text) => this.setState({text})}
-	 />
 	 <TextInput
 	 placeholder = "Enter e-mail"
 	 onChangeText={(text) => this.setState({text})}
@@ -31,30 +23,29 @@ class CreateNewUser extends Component {
 	 onChangeText={(text) => this.setState({text})}
 	 />
 	 	<Button
-	title="Register"
-	onPress={this.addUser}
+	title="Login"
+	onPress={this.LogIn}
 	/>
 	</View>
  );
  }
  
- addUser = () => {
- return fetch("http://10.0.2.2:3333/api/v0.0.5/user",
+ LogIn = () => {
+ return fetch("http://10.0.2.2:3333/api/v0.0.5/login",
  {
  method: 'POST',
  body: JSON.stringify({
- given_name: this.state.first_name,
- family_name: this.state.surname,
  email: this.state.e_mail,
  password: this.state.pw,
  })
  })
  .then((response) => {
- Alert.alert("User Added!");
+	 // NOT SURE HOW TO DO THIS!!
  })
  .catch((error) => {
  console.error(error);
  });
+ 
  }
 
 }

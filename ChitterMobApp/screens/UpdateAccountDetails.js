@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, TextInput, View, Button, StyleSheet, Alert } from 'react-native';
 
 	 
-class CreateNewUser extends Component {
+class UpdateAccountDetails extends Component {
 
 	constructor(props){
 	super(props);
@@ -39,19 +39,19 @@ class CreateNewUser extends Component {
 			/>
 				 
 			<Button
-				title="Register"
-				onPress={this.addUser}
+				title="Update Details"
+				onPress={this.editUser}
 			/>
 				
 		</View>
 		);
 	}
 	 
-	addUser = () => {
-		return fetch("http://10.0.2.2:3333/api/v0.0.5/user",
+	editUser = () => {
+		return fetch("http://10.0.2.2:3333/api/v0.0.5/user/" + userId,
 		{
-			method: 'POST',
-			headers:{'Content-Type': 'application/json'},
+			method: 'PATCH',
+			headers:{'Content-Type': 'application/json','X-Authorization' : authToken},
 			body: JSON.stringify({
 			given_name: this.state.given_name,
 			family_name: this.state.family_name,
@@ -60,8 +60,8 @@ class CreateNewUser extends Component {
 			})
 		})
 		.then((response) => {
-			Alert.alert("User added");
-			this.props.navigation.navigate('Login')
+			Alert.alert("Details Changed");
+			this.props.navigation.navigate('Home')
 		})
 		.catch((error) => {
 			console.error(error);
@@ -69,4 +69,4 @@ class CreateNewUser extends Component {
 	}
 
 }
-export default CreateNewUser
+export default UpdateAccountDetails

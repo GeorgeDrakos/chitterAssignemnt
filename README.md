@@ -7,6 +7,8 @@
  
  ### Installation
  
+ You will need node.js which can be found [here](https://nodejs.org/en/) as well as android studio which can be found [here](https://developer.android.com/studio/)
+ 
  After sucessfully cloning the MobAppDev folder make sure to run the following command on the root directory of the project.
  
  ```bash
